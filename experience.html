@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience | Arda Ünal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #1e293b;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #22d3ee;
+      --accent-2: #818cf8;
+      --line: #334155;
+      --gold: #f59e0b;
+      --radius: 18px;
+      --shadow: 0 14px 40px rgba(2, 6, 23, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(34, 211, 238, 0.12), transparent 60%),
+        radial-gradient(700px 450px at 90% -20%, rgba(129, 140, 248, 0.16), transparent 55%),
+        var(--bg);
+      line-height: 1.72;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("orion-bg.svg") center/cover no-repeat;
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.22);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: 0 auto;
+      padding-bottom: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.05rem 0;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, 0.75);
+      z-index: 10;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.72rem;
+      color: #f8fafc;
+    }
+
+    .brand:hover,
+    .brand:focus-visible {
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 8px;
+      opacity: 0.98;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.55);
+      padding: 3px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-main {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+
+    .brand-sub {
+      margin-top: 0.17rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: #f59e0b;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 2px;
+      text-decoration-color: transparent;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .nav-links a.active {
+      color: #f8fafc;
+      text-decoration: underline;
+      text-decoration-color: var(--gold);
+    }
+
+    .hero,
+    section {
+      margin-top: 1.35rem;
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.95));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.55rem 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 0.78rem;
+      font-family: 'Source Code Pro', monospace;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0.45rem 0 2rem;
+      font-size: clamp(2.4rem, 6.1vw, 4rem);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      font-weight: 800;
+      color: #c4b5fd;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 840px;
+      color: var(--muted);
+      font-size: 1.14rem;
+      line-height: 1.75;
+    }
+
+    .summary-stats {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      max-width: 560px;
+    }
+
+    .summary-card {
+      background: rgba(30, 41, 59, 0.72);
+      border: 1px solid rgba(71, 85, 105, 0.7);
+      border-radius: 14px;
+      padding: 0.85rem 0.95rem;
+    }
+
+    .summary-value {
+      display: block;
+      font-size: 1.4rem;
+      line-height: 1.1;
+      font-weight: 800;
+      color: #c4b5fd;
+      margin-bottom: 0.2rem;
+    }
+
+    .summary-label {
+      display: block;
+      color: #93c5fd;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 0.92fr);
+      gap: 1.8rem;
+      justify-content: center;
+      align-items: start;
+    }
+
+    .col-title {
+      margin: 0 0 0.95rem;
+      font-size: clamp(1.38rem, 2.45vw, 1.78rem);
+      letter-spacing: -0.01em;
+      color: #ddd6fe;
+      font-weight: 700;
+    }
+
+    .stack {
+      display: grid;
+      gap: 0.82rem;
+    }
+
+    .timeline-stack {
+      position: relative;
+      display: grid;
+      gap: 1rem;
+      padding-left: 1.25rem;
+    }
+
+    .timeline-stack::before {
+      content: "";
+      position: absolute;
+      left: 0.3rem;
+      top: 0.15rem;
+      bottom: 0.15rem;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(129, 140, 248, 0.7), rgba(56, 189, 248, 0.35));
+    }
+
+    .timeline-entry {
+      position: relative;
+      padding: 0 0 0.95rem 0.8rem;
+    }
+
+    .timeline-entry::before {
+      content: "";
+      position: absolute;
+      left: -1.04rem;
+      top: 0.42rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #818cf8;
+      box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.22);
+    }
+
+    .timeline-entry h3 {
+      margin: 0 0 0.3rem;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      color: #bfdbfe;
+      font-weight: 700;
+    }
+
+    .timeline-entry p:not(.date) {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.91rem;
+      line-height: 1.62;
+    }
+
+    .entry {
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(71, 85, 105, 0.7);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+
+    .entry h3 {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      color: #bfdbfe;
+      font-weight: 700;
+    }
+
+    .entry-head {
+      display: flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+
+    .entry-head h3 {
+      flex: 1 1 240px;
+    }
+
+    .date {
+      margin: 0 0 0.45rem;
+      color: #93c5fd;
+      font-size: 0.78rem;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .entry-head .date {
+      margin: 0;
+    }
+
+    .entry p:not(.date) {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.91rem;
+      line-height: 1.62;
+    }
+
+    .award-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.56;
+      margin: 0;
+    }
+
+    .cv-cta {
+      margin: 1.35rem auto 0;
+      max-width: 900px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.95));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.55rem 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .cv-cta h2 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.42rem, 2.7vw, 1.85rem);
+      letter-spacing: -0.01em;
+      color: #ddd6fe;
+    }
+
+    .cv-cta p {
+      margin: 0 auto 1rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.68;
+      max-width: 760px;
+    }
+
+    .request-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.52rem 1.05rem;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 211, 238, 0.55);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #0f172a;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(34, 211, 238, 0.28);
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .request-btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(129, 140, 248, 0.34);
+    }
+
+    .request-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2, 6, 23, 0.72);
+      z-index: 50;
+      padding: 1rem;
+    }
+
+    .request-modal.open {
+      display: flex;
+    }
+
+    .request-dialog {
+      width: min(560px, 100%);
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.98));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 1.1rem;
+    }
+
+    .request-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .request-head h3 {
+      margin: 0;
+      font-size: 1.04rem;
+      color: #f8fafc;
+      letter-spacing: -0.01em;
+    }
+
+    .modal-close {
+      border: 1px solid var(--line);
+      background: rgba(30, 41, 59, 0.8);
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 0.18rem 0.55rem;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+
+    .request-form {
+      display: grid;
+      gap: 0.72rem;
+    }
+
+    .request-form label {
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.86rem;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    .request-form input,
+    .request-form textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: rgba(30, 41, 59, 0.72);
+      color: #f8fafc;
+      border-radius: 10px;
+      padding: 0.55rem 0.65rem;
+      font: inherit;
+    }
+
+    .request-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .request-actions {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .submit-btn,
+    .cancel-btn {
+      border-radius: 999px;
+      padding: 0.45rem 0.95rem;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      border: 1px solid rgba(34, 211, 238, 0.55);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #0f172a;
+    }
+
+    .cancel-btn {
+      border: 1px solid var(--line);
+      background: rgba(30, 41, 59, 0.82);
+      color: #e2e8f0;
+    }
+
+    .request-note {
+      margin: 0.7rem 0 0;
+      font-size: 0.82rem;
+      color: #94a3b8;
+    }
+
+    .site-footer {
+      margin-top: 1.5rem;
+      padding: 1.05rem 0 0.3rem;
+    }
+
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1.8rem; align-items: start; }
+    .footer-grid > div:first-child { justify-self: start; }
+    .footer-grid > div:nth-child(2) { justify-self: center; }
+    .footer-grid > div:last-child { justify-self: end; text-align: right; }
+    .footer-brand { display: inline-flex; align-items: center; gap: 0.6rem; color: #f8fafc; text-decoration: none; }
+    .footer-brand-icon { width: 34px; height: 34px; object-fit: contain; border-radius: 8px; border: 1px solid rgba(148, 163, 184, 0.35); background: rgba(15, 23, 42, 0.55); padding: 2px; }
+    .footer-name { margin: 0; color: #f8fafc; font-size: 1.18rem; font-weight: 800; }
+    .footer-title { margin: 0.3rem 0 0.8rem; color: var(--muted); font-size: 0.98rem; }
+    .footer-social { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .social-link { width: 34px; height: 34px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; color: #e2e8f0; border: 1px solid rgba(99, 102, 241, 0.5); background: rgba(30, 41, 59, 0.7); font-family: 'Source Code Pro', monospace; font-size: 0.8rem; font-weight: 700; }
+    .social-link:hover { text-decoration: none; border-color: #818cf8; background: rgba(99, 102, 241, 0.16); }
+    .footer-head { margin: 0 0 0.5rem; color: #ddd6fe; font-size: 0.94rem; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Source Code Pro', monospace; font-weight: 700; }
+    .footer-list { display: grid; gap: 0.32rem; }
+    .footer-list a { color: var(--muted); text-decoration: none; font-size: 0.98rem; }
+    .footer-list a:hover { color: #f8fafc; text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 4px; }
+    .footer-bottom { margin: 1rem 0 0; color: #94a3b8; font-size: 0.9rem; text-align: center; }
+
+    @media (max-width: 980px) {
+      .summary-stats {
+        max-width: none;
+      }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .footer-grid > div:nth-child(2),
+      .footer-grid > div:last-child { justify-self: start; text-align: left; }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .brand-sub {
+        display: none;
+      }
+
+      section,
+      .hero {
+        padding: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Arda Ünal home">
+        <img class="brand-icon" src="file.enc" alt="Brand icon" />
+        <span class="brand-text">
+          <span class="brand-main">Arda Ünal</span>
+          <span class="brand-sub">Understanding Comes First<br>Building Comes Next</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Projects</a>
+        <a href="research.html">Research</a>
+        <a href="articles.html">Writing</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">05 - Experience</p>
+      <h1>Experience &amp; Awards</h1>
+      <p class="lede">
+        A structured summary of my recent experience and honors, organized with dates from my CV.
+      </p>
+      <div class="summary-stats" aria-label="Experience and awards totals">
+        <div class="summary-card">
+          <span class="summary-value">5</span>
+          <span class="summary-label">Experiences</span>
+        </div>
+        <div class="summary-card">
+          <span class="summary-value">12</span>
+          <span class="summary-label">Awards</span>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="two-col">
+        <div>
+          <h2 class="col-title">Experience</h2>
+          <div class="timeline-stack">
+            <article class="timeline-entry">
+              <p class="date">June 2026 - Present</p>
+              <h3>Researcher, Pioneer Academics Research Program</h3>
+              <p>Conduct independent research under Prof. Christian Lopez Bencosme, focusing on data science, predictive modeling, and AI-assisted workflows.</p>
+            </article>
+
+            <article class="timeline-entry">
+              <p class="date">October 2025 - Present</p>
+              <h3>Independent Research Writer, Medium</h3>
+              <p>Document model design and experimentation for LSTM stock forecasting, while analyzing ethical risks such as black-box decision making and inequality.</p>
+            </article>
+
+            <article class="timeline-entry">
+              <p class="date">September 2025 - Present</p>
+              <h3>Digital Citizen Ambassador &amp; Writer, SEV American College</h3>
+              <p>Published 3 school-magazine articles on social media effects including loneliness, comparison pressure, and digital overexposure.</p>
+            </article>
+
+            <article class="timeline-entry">
+              <p class="date">July 2025 (1 week)</p>
+              <h3>Engineering Intern, Meyer Group</h3>
+              <p>Supported final security-system testing and observed end-to-end development of access-control technologies.</p>
+            </article>
+
+            <article class="timeline-entry">
+              <p class="date">September 2023 - June 2024</p>
+              <h3>Community Engagement Lead, FRC Robotics Club</h3>
+              <p>Led a robotics workshop for 80 kindergarten students, introducing algorithmic thinking and digital creativity tools.</p>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="col-title">Awards &amp; Honors</h2>
+          <div class="stack">
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2026</p>
+                <h3>University of Rochester Xerox Award for Innovation and Information Technology</h3>
+              </div>
+              <p class="award-note">Recognized for innovation-driven work and strong technology impact.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2026</p>
+                <h3>WPI Innovation Award ($25,000 Merit Scholarship)</h3>
+              </div>
+              <p class="award-note">Awarded for creative problem-solving with measurable academic potential.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2026</p>
+                <h3>Purple Comet Math Meet - 1st Place (Global, 958 teams)</h3>
+              </div>
+              <p class="award-note">Ranked first worldwide with high-level team performance in competitive mathematics.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2026</p>
+                <h3>Purple Comet Math Meet - 1st Place (Turkey, 112 teams)</h3>
+              </div>
+              <p class="award-note">Achieved the top national ranking among all teams from Turkey.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2026</p>
+                <h3>KIMFIBI Science Competition - Physics Champion</h3>
+              </div>
+              <p class="award-note">Recognized as physics champion for applied scientific reasoning and accuracy.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2026</p>
+                <h3>University of Waterloo Mathematics Competitions - School Champion, Fermat Medal, Hypatia Medal</h3>
+              </div>
+              <p class="award-note">Earned multiple distinctions through consistent results across Waterloo contests.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2025</p>
+                <h3>ASMA Mathematics Competition - 2nd Place (School Level)</h3>
+              </div>
+              <p class="award-note">Placed second at school level with strong problem-solving performance.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2025</p>
+                <h3>ABRSM Grade 8 Certificate, Royal Academy of Music</h3>
+              </div>
+              <p class="award-note">Completed advanced-level music certification with formal external assessment.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2025</p>
+                <h3>University of Waterloo Mathematics Competitions - School Champion, Pascal/Cayley/Fermat Medals</h3>
+              </div>
+              <p class="award-note">Maintained top school ranking with medal results in major math competitions.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2025</p>
+                <h3>Turkey Intelligence Foundation National Exam - 43rd</h3>
+              </div>
+              <p class="award-note">Placed 43rd nationally in a large-scale intelligence and reasoning exam.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2024</p>
+                <h3>University of Waterloo Mathematics Competitions - School Champion, Pascal/Cayley/Fermat Medals</h3>
+              </div>
+              <p class="award-note">Established early competitive math excellence with multi-medal performance.</p>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <p class="date">2024</p>
+                <h3>Turkey Intelligence Foundation National Exam - 52nd</h3>
+              </div>
+              <p class="award-note">Achieved a national rank of 52nd in the annual intelligence examination.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-cta">
+      <h2>Want the complete CV?</h2>
+      <p>Happy to share a detailed résumé and transcript for roles, programs, or collaborations.</p>
+      <button class="request-btn" id="openRequestModal" type="button">Request CV</button>
+    </section>
+
+    <div class="request-modal" id="requestModal" role="dialog" aria-modal="true" aria-labelledby="requestModalTitle">
+      <div class="request-dialog">
+        <div class="request-head">
+          <h3 id="requestModalTitle">Request Full CV</h3>
+          <button class="modal-close" id="closeRequestModal" type="button" aria-label="Close popup">×</button>
+        </div>
+        <form class="request-form" id="requestCvForm">
+          <label for="requesterEmail">
+            Your Email Address
+            <input id="requesterEmail" name="requesterEmail" type="email" required placeholder="name@example.com" />
+          </label>
+          <label for="requestReason">
+            Reason
+            <textarea id="requestReason" name="requestReason" required placeholder="Please share why you want to request the CV."></textarea>
+          </label>
+          <div class="request-actions">
+            <button class="submit-btn" type="submit">Send Request</button>
+            <button class="cancel-btn" id="cancelRequestModal" type="button">Cancel</button>
+          </div>
+        </form>
+        <p class="request-note">This CV request will be sent to my email address: ardaunal1000@gmail.com.</p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html" aria-label="Arda Ünal home"><img class="footer-brand-icon" src="file.enc" alt="Brand icon" /><p class="footer-name">Arda Ünal</p></a>
+          <p class="footer-title">Student Developer • AI Researcher</p>
+          <div class="footer-social">
+            <a class="social-link" href="https://github.com/King-Middle" target="_blank" rel="noreferrer" aria-label="GitHub">🐙</a>
+            <a class="social-link" href="https://linkedin.com/in/arda-ünal-1ba497396" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+            <a class="social-link" href="https://medium.com/@ardaunal1000/" target="_blank" rel="noreferrer" aria-label="Medium">M</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-head">Navigate</p>
+          <div class="footer-list">
+            <a href="index.html">Home</a><a href="about.html">About</a><a href="work.html">Projects</a><a href="research.html">Research</a><a href="articles.html">Writing</a><a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-head">Contact</p>
+          <div class="footer-list">
+            <a href="mailto:ardaunal1000@gmail.com">ardaunal1000@gmail.com</a>
+            <a href="https://github.com/King-Middle" target="_blank" rel="noreferrer">github.com/King-Middle</a>
+            <a href="https://linkedin.com/in/arda-ünal-1ba497396" target="_blank" rel="noreferrer">linkedin.com/in/arda-ünal-1ba497396</a>
+            <a href="https://medium.com/@ardaunal1000/" target="_blank" rel="noreferrer">medium.com/@ardaunal1000</a>
+            <a href="contact.html?request=cv#request-cv">Request CV</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">Experience page • Last updated: June 2026</p>
+    </footer>
+  </div>
+  <script>
+    const requestModal = document.getElementById('requestModal');
+    const openRequestModal = document.getElementById('openRequestModal');
+    const closeRequestModal = document.getElementById('closeRequestModal');
+    const cancelRequestModal = document.getElementById('cancelRequestModal');
+    const requestCvForm = document.getElementById('requestCvForm');
+
+    function closeModal() {
+      requestModal.classList.remove('open');
+    }
+
+    openRequestModal.addEventListener('click', () => {
+      requestModal.classList.add('open');
+    });
+
+    closeRequestModal.addEventListener('click', closeModal);
+    cancelRequestModal.addEventListener('click', closeModal);
+
+    requestModal.addEventListener('click', (event) => {
+      if (event.target === requestModal) {
+        closeModal();
+      }
+    });
+
+    requestCvForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const requesterEmail = document.getElementById('requesterEmail').value.trim();
+      const requestReason = document.getElementById('requestReason').value.trim();
+
+      const subject = encodeURIComponent('CV Request');
+      const body = encodeURIComponent(
+        `Requester Email: ${requesterEmail}\n\nReason:\n${requestReason}`
+      );
+
+      window.location.href = `mailto:ardaunal1000@gmail.com?subject=${subject}&body=${body}`;
+      closeModal();
+      requestCvForm.reset();
+    });
+  </script>
+</body>
+</html>
